@@ -1,0 +1,542 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8BDD35B71EE618FA00BEE3B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD35B61EE618FA00BEE3B0 /* AppDelegate.swift */; };
+		8BDD35B91EE618FA00BEE3B0 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8BDD35B81EE618FA00BEE3B0 /* GameScene.sks */; };
+		8BDD35BB1EE618FA00BEE3B0 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8BDD35BA1EE618FA00BEE3B0 /* Actions.sks */; };
+		8BDD35BD1EE618FA00BEE3B0 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD35BC1EE618FA00BEE3B0 /* GameScene.swift */; };
+		8BDD35BF1EE618FA00BEE3B0 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD35BE1EE618FA00BEE3B0 /* GameViewController.swift */; };
+		8BDD35C21EE618FA00BEE3B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BDD35C01EE618FA00BEE3B0 /* Main.storyboard */; };
+		8BDD35C41EE618FA00BEE3B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BDD35C31EE618FA00BEE3B0 /* Assets.xcassets */; };
+		8BDD35C71EE618FA00BEE3B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BDD35C51EE618FA00BEE3B0 /* LaunchScreen.storyboard */; };
+		8BDD35D21EE618FA00BEE3B0 /* AppleInvadersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD35D11EE618FA00BEE3B0 /* AppleInvadersTests.swift */; };
+		8BDD35DD1EE618FA00BEE3B0 /* AppleInvadersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD35DC1EE618FA00BEE3B0 /* AppleInvadersUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8BDD35CE1EE618FA00BEE3B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8BDD35AB1EE618FA00BEE3B0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8BDD35B21EE618FA00BEE3B0;
+			remoteInfo = AppleInvaders;
+		};
+		8BDD35D91EE618FA00BEE3B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8BDD35AB1EE618FA00BEE3B0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8BDD35B21EE618FA00BEE3B0;
+			remoteInfo = AppleInvaders;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8BDD35B31EE618FA00BEE3B0 /* AppleInvaders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleInvaders.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BDD35B61EE618FA00BEE3B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8BDD35B81EE618FA00BEE3B0 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		8BDD35BA1EE618FA00BEE3B0 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		8BDD35BC1EE618FA00BEE3B0 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		8BDD35BE1EE618FA00BEE3B0 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		8BDD35C11EE618FA00BEE3B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8BDD35C31EE618FA00BEE3B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8BDD35C61EE618FA00BEE3B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8BDD35C81EE618FA00BEE3B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BDD35CD1EE618FA00BEE3B0 /* AppleInvadersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppleInvadersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BDD35D11EE618FA00BEE3B0 /* AppleInvadersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleInvadersTests.swift; sourceTree = "<group>"; };
+		8BDD35D31EE618FA00BEE3B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BDD35D81EE618FA00BEE3B0 /* AppleInvadersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppleInvadersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BDD35DC1EE618FA00BEE3B0 /* AppleInvadersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleInvadersUITests.swift; sourceTree = "<group>"; };
+		8BDD35DE1EE618FA00BEE3B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8BDD35B01EE618FA00BEE3B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BDD35CA1EE618FA00BEE3B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BDD35D51EE618FA00BEE3B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8BDD35AA1EE618FA00BEE3B0 = {
+			isa = PBXGroup;
+			children = (
+				8BDD35B51EE618FA00BEE3B0 /* AppleInvaders */,
+				8BDD35D01EE618FA00BEE3B0 /* AppleInvadersTests */,
+				8BDD35DB1EE618FA00BEE3B0 /* AppleInvadersUITests */,
+				8BDD35B41EE618FA00BEE3B0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8BDD35B41EE618FA00BEE3B0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8BDD35B31EE618FA00BEE3B0 /* AppleInvaders.app */,
+				8BDD35CD1EE618FA00BEE3B0 /* AppleInvadersTests.xctest */,
+				8BDD35D81EE618FA00BEE3B0 /* AppleInvadersUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8BDD35B51EE618FA00BEE3B0 /* AppleInvaders */ = {
+			isa = PBXGroup;
+			children = (
+				8BDD35B61EE618FA00BEE3B0 /* AppDelegate.swift */,
+				8BDD35B81EE618FA00BEE3B0 /* GameScene.sks */,
+				8BDD35BA1EE618FA00BEE3B0 /* Actions.sks */,
+				8BDD35BC1EE618FA00BEE3B0 /* GameScene.swift */,
+				8BDD35BE1EE618FA00BEE3B0 /* GameViewController.swift */,
+				8BDD35C01EE618FA00BEE3B0 /* Main.storyboard */,
+				8BDD35C31EE618FA00BEE3B0 /* Assets.xcassets */,
+				8BDD35C51EE618FA00BEE3B0 /* LaunchScreen.storyboard */,
+				8BDD35C81EE618FA00BEE3B0 /* Info.plist */,
+			);
+			path = AppleInvaders;
+			sourceTree = "<group>";
+		};
+		8BDD35D01EE618FA00BEE3B0 /* AppleInvadersTests */ = {
+			isa = PBXGroup;
+			children = (
+				8BDD35D11EE618FA00BEE3B0 /* AppleInvadersTests.swift */,
+				8BDD35D31EE618FA00BEE3B0 /* Info.plist */,
+			);
+			path = AppleInvadersTests;
+			sourceTree = "<group>";
+		};
+		8BDD35DB1EE618FA00BEE3B0 /* AppleInvadersUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8BDD35DC1EE618FA00BEE3B0 /* AppleInvadersUITests.swift */,
+				8BDD35DE1EE618FA00BEE3B0 /* Info.plist */,
+			);
+			path = AppleInvadersUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8BDD35B21EE618FA00BEE3B0 /* AppleInvaders */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BDD35E11EE618FA00BEE3B0 /* Build configuration list for PBXNativeTarget "AppleInvaders" */;
+			buildPhases = (
+				8BDD35AF1EE618FA00BEE3B0 /* Sources */,
+				8BDD35B01EE618FA00BEE3B0 /* Frameworks */,
+				8BDD35B11EE618FA00BEE3B0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AppleInvaders;
+			productName = AppleInvaders;
+			productReference = 8BDD35B31EE618FA00BEE3B0 /* AppleInvaders.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8BDD35CC1EE618FA00BEE3B0 /* AppleInvadersTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BDD35E41EE618FA00BEE3B0 /* Build configuration list for PBXNativeTarget "AppleInvadersTests" */;
+			buildPhases = (
+				8BDD35C91EE618FA00BEE3B0 /* Sources */,
+				8BDD35CA1EE618FA00BEE3B0 /* Frameworks */,
+				8BDD35CB1EE618FA00BEE3B0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8BDD35CF1EE618FA00BEE3B0 /* PBXTargetDependency */,
+			);
+			name = AppleInvadersTests;
+			productName = AppleInvadersTests;
+			productReference = 8BDD35CD1EE618FA00BEE3B0 /* AppleInvadersTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8BDD35D71EE618FA00BEE3B0 /* AppleInvadersUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BDD35E71EE618FA00BEE3B0 /* Build configuration list for PBXNativeTarget "AppleInvadersUITests" */;
+			buildPhases = (
+				8BDD35D41EE618FA00BEE3B0 /* Sources */,
+				8BDD35D51EE618FA00BEE3B0 /* Frameworks */,
+				8BDD35D61EE618FA00BEE3B0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8BDD35DA1EE618FA00BEE3B0 /* PBXTargetDependency */,
+			);
+			name = AppleInvadersUITests;
+			productName = AppleInvadersUITests;
+			productReference = 8BDD35D81EE618FA00BEE3B0 /* AppleInvadersUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8BDD35AB1EE618FA00BEE3B0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = DEVELOPER;
+				TargetAttributes = {
+					8BDD35B21EE618FA00BEE3B0 = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+					8BDD35CC1EE618FA00BEE3B0 = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 8BDD35B21EE618FA00BEE3B0;
+					};
+					8BDD35D71EE618FA00BEE3B0 = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 8BDD35B21EE618FA00BEE3B0;
+					};
+				};
+			};
+			buildConfigurationList = 8BDD35AE1EE618FA00BEE3B0 /* Build configuration list for PBXProject "AppleInvaders" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8BDD35AA1EE618FA00BEE3B0;
+			productRefGroup = 8BDD35B41EE618FA00BEE3B0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8BDD35B21EE618FA00BEE3B0 /* AppleInvaders */,
+				8BDD35CC1EE618FA00BEE3B0 /* AppleInvadersTests */,
+				8BDD35D71EE618FA00BEE3B0 /* AppleInvadersUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8BDD35B11EE618FA00BEE3B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BDD35C21EE618FA00BEE3B0 /* Main.storyboard in Resources */,
+				8BDD35B91EE618FA00BEE3B0 /* GameScene.sks in Resources */,
+				8BDD35C41EE618FA00BEE3B0 /* Assets.xcassets in Resources */,
+				8BDD35C71EE618FA00BEE3B0 /* LaunchScreen.storyboard in Resources */,
+				8BDD35BB1EE618FA00BEE3B0 /* Actions.sks in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BDD35CB1EE618FA00BEE3B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BDD35D61EE618FA00BEE3B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8BDD35AF1EE618FA00BEE3B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BDD35BD1EE618FA00BEE3B0 /* GameScene.swift in Sources */,
+				8BDD35BF1EE618FA00BEE3B0 /* GameViewController.swift in Sources */,
+				8BDD35B71EE618FA00BEE3B0 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BDD35C91EE618FA00BEE3B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BDD35D21EE618FA00BEE3B0 /* AppleInvadersTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BDD35D41EE618FA00BEE3B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BDD35DD1EE618FA00BEE3B0 /* AppleInvadersUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8BDD35CF1EE618FA00BEE3B0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8BDD35B21EE618FA00BEE3B0 /* AppleInvaders */;
+			targetProxy = 8BDD35CE1EE618FA00BEE3B0 /* PBXContainerItemProxy */;
+		};
+		8BDD35DA1EE618FA00BEE3B0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8BDD35B21EE618FA00BEE3B0 /* AppleInvaders */;
+			targetProxy = 8BDD35D91EE618FA00BEE3B0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8BDD35C01EE618FA00BEE3B0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8BDD35C11EE618FA00BEE3B0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8BDD35C51EE618FA00BEE3B0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8BDD35C61EE618FA00BEE3B0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8BDD35DF1EE618FA00BEE3B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8BDD35E01EE618FA00BEE3B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8BDD35E21EE618FA00BEE3B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = AppleInvaders/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = pucpr.AppleInvaders;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		8BDD35E31EE618FA00BEE3B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = AppleInvaders/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = pucpr.AppleInvaders;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		8BDD35E51EE618FA00BEE3B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = AppleInvadersTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = pucpr.AppleInvadersTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AppleInvaders.app/AppleInvaders";
+			};
+			name = Debug;
+		};
+		8BDD35E61EE618FA00BEE3B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = AppleInvadersTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = pucpr.AppleInvadersTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AppleInvaders.app/AppleInvaders";
+			};
+			name = Release;
+		};
+		8BDD35E81EE618FA00BEE3B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = AppleInvadersUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = pucpr.AppleInvadersUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = AppleInvaders;
+			};
+			name = Debug;
+		};
+		8BDD35E91EE618FA00BEE3B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = AppleInvadersUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = pucpr.AppleInvadersUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = AppleInvaders;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8BDD35AE1EE618FA00BEE3B0 /* Build configuration list for PBXProject "AppleInvaders" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BDD35DF1EE618FA00BEE3B0 /* Debug */,
+				8BDD35E01EE618FA00BEE3B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8BDD35E11EE618FA00BEE3B0 /* Build configuration list for PBXNativeTarget "AppleInvaders" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BDD35E21EE618FA00BEE3B0 /* Debug */,
+				8BDD35E31EE618FA00BEE3B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8BDD35E41EE618FA00BEE3B0 /* Build configuration list for PBXNativeTarget "AppleInvadersTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BDD35E51EE618FA00BEE3B0 /* Debug */,
+				8BDD35E61EE618FA00BEE3B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8BDD35E71EE618FA00BEE3B0 /* Build configuration list for PBXNativeTarget "AppleInvadersUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BDD35E81EE618FA00BEE3B0 /* Debug */,
+				8BDD35E91EE618FA00BEE3B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8BDD35AB1EE618FA00BEE3B0 /* Project object */;
+}
