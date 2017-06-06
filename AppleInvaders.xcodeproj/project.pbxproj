@@ -17,6 +17,7 @@
 		8BDD35C71EE618FA00BEE3B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BDD35C51EE618FA00BEE3B0 /* LaunchScreen.storyboard */; };
 		8BDD35D21EE618FA00BEE3B0 /* AppleInvadersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD35D11EE618FA00BEE3B0 /* AppleInvadersTests.swift */; };
 		8BDD35DD1EE618FA00BEE3B0 /* AppleInvadersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD35DC1EE618FA00BEE3B0 /* AppleInvadersUITests.swift */; };
+		8BDD35EB1EE634C400BEE3B0 /* ✨.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8BDD35EA1EE634C400BEE3B0 /* ✨.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		8BDD35D81EE618FA00BEE3B0 /* AppleInvadersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppleInvadersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BDD35DC1EE618FA00BEE3B0 /* AppleInvadersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleInvadersUITests.swift; sourceTree = "<group>"; };
 		8BDD35DE1EE618FA00BEE3B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BDD35EA1EE634C400BEE3B0 /* ✨.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "✨.sks"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				8BDD35C31EE618FA00BEE3B0 /* Assets.xcassets */,
 				8BDD35C51EE618FA00BEE3B0 /* LaunchScreen.storyboard */,
 				8BDD35C81EE618FA00BEE3B0 /* Info.plist */,
+				8BDD35EA1EE634C400BEE3B0 /* ✨.sks */,
 			);
 			path = AppleInvaders;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BDD35EB1EE634C400BEE3B0 /* ✨.sks in Resources */,
 				8BDD35C21EE618FA00BEE3B0 /* Main.storyboard in Resources */,
 				8BDD35B91EE618FA00BEE3B0 /* GameScene.sks in Resources */,
 				8BDD35C41EE618FA00BEE3B0 /* Assets.xcassets in Resources */,
