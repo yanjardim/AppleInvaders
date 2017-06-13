@@ -8,7 +8,8 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene, SKPhysicsContactDelegate{
+class GameScene: SKScene, SKPhysicsContactDelegate
+{
     
 
     let category🤡: UInt32 = 0x1 << 0
@@ -17,13 +18,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     var enemies = [SKSpriteNode]()
     var canUpdate = false
     
+    var player = SKSpriteNode(imageNamed: "player");
+    var isTouchPressed = false, moveDirection = false;
+    let speedPlayer:CGFloat = 400.0;
+    
     override func didMove(to view: SKView) {
         self.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         
         enemies = createEnemies(padding: CGPoint(x: 100, y: 70))
-        
+        createPlayer();
         canUpdate = true
-        
+    
         
     }
     
@@ -56,33 +61,61 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         box.position = location
         return box;
     }
+  
+    
+
+    
+    func createPlayer()
+    {
+        player.setScale(0.5);
+        player.position = CGPoint(x: self.frame.midX, y: player.size.height + 20);
+        self.addChild(player);
+    }
     
     var beginTouch = CGPoint.zero
     
+  
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     
-        
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
+    {
+        if let touch = touches.first
+        {
+            isTouchPressed = true;
+
+            if touch.location(in: self).x > self.frame.midX
+            {
+                moveDirection = true;
+            }
+            else
+            {
+                moveDirection = false;
+            }
+        }
+    }
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?)
+    {
+        if let touch = touches.first
+        {
+            isTouchPressed = false;
+        }
     }
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?)
+    {
+        if let touch = touches.first
+        {
+            isTouchPressed = false;
+        }
     }
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-    }
     
     var lastUpdateTime : TimeInterval = 0
     
     override func update(_ currentTime: TimeInterval) {
         if canUpdate == true{
-            var deltaTime = currentTime - lastUpdateTime
-            var deltaTimeFloat = CGFloat(deltaTime)
+            let deltaTime = currentTime - lastUpdateTime
+            let deltaTimeFloat = CGFloat(deltaTime)
             if deltaTimeFloat < 1000 {
             
                 print("Deltatime: " + String(describing: deltaTimeFloat))
@@ -92,11 +125,45 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                     i.position.x += 50 * deltaTimeFloat
             
                 }
+                
+                updatePlayer(deltaTime : deltaTimeFloat);
+                
             }
+            
+            
             lastUpdateTime = currentTime;
+            
+            
+        }
+    }
+    
+    
+    func updatePlayer(deltaTime : CGFloat)
+    {
+        if isTouchPressed == true
+        {
+            if moveDirection == true
+            {
+                player.position.x += speedPlayer * deltaTime
+            }
+            else
+            {
+                player.position.x -= speedPlayer * deltaTime
+            }
         }
         
         
+        if player.position.x + (player.size.width/2) > self.frame.width
+        {
+            player.position.x = self.frame.width - (player.size.width/2);
+        }
         
+        if player.position.x - (player.size.width/2) < 0
+        {
+            player.position.x = (player.size.width/2);
+        }
+
     }
+    
+  
 }
