@@ -46,7 +46,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
             for y in 1...5{
                 let pX = CGFloat(x)
                 let pY = CGFloat(y)
-                let enemy = createBox(CGPoint(x: positionX + (padding.x * pX), y: positionY + (padding.y * pY)))
+                let enemy = createEnemy(CGPoint(x: positionX + (padding.x * pX), y: positionY + (padding.y * pY)))
                 self.addChild(enemy)
                 enemies.append(enemy)
             }
@@ -62,7 +62,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         return box;
     }
   
-    
+    func createEnemy(_ location : CGPoint) -> SKSpriteNode{
+        let box = SKSpriteNode(imageNamed: "enemy2");
+        box.position = location
+        box.setScale(0.3)
+        return box;
+    }
 
     
     func createPlayer()
@@ -117,9 +122,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
             let deltaTime = currentTime - lastUpdateTime
             let deltaTimeFloat = CGFloat(deltaTime)
             if deltaTimeFloat < 1000 {
-            
-                print("Deltatime: " + String(describing: deltaTimeFloat))
-        
+                
         
                 for i in enemies{
                     i.position.x += 50 * deltaTimeFloat
