@@ -17,7 +17,7 @@ class GameViewController: UIViewController {
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
-            let scene = GameScene(size: CGSize(width: 1334, height: 750))
+            let scene = GameScene(size: CGSize(width: 750, height: 1334))
                 // Set the scale mode to scale to fit the window
             scene.scaleMode = .aspectFill
                 // Present the scene
@@ -27,6 +27,7 @@ class GameViewController: UIViewController {
             
             view.showsFPS = true
             view.showsNodeCount = true
+            
             //view.showsPhysics = true
             view.presentScene(scene)
         }
@@ -37,7 +38,7 @@ class GameViewController: UIViewController {
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .landscape
+        return .portrait
     }
 
     override func didReceiveMemoryWarning() {
