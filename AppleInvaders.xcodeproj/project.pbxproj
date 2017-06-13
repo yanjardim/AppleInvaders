@@ -523,6 +523,7 @@
 				8BDD35E31EE618FA00BEE3B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8BDD35E41EE618FA00BEE3B0 /* Build configuration list for PBXNativeTarget "AppleInvadersTests" */ = {
 			isa = XCConfigurationList;
@@ -531,6 +532,7 @@
 				8BDD35E61EE618FA00BEE3B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8BDD35E71EE618FA00BEE3B0 /* Build configuration list for PBXNativeTarget "AppleInvadersUITests" */ = {
 			isa = XCConfigurationList;
@@ -539,6 +541,7 @@
 				8BDD35E91EE618FA00BEE3B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
