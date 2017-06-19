@@ -22,6 +22,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     var isTouchPressed = false, moveDirection = false;
     let speedPlayer:CGFloat = 400.0;
     
+    let enemiesSpeed : CGFloat = 100;
+    let enemiesSpeedY : CGFloat = 3000;
+    var right : Bool = true
+    var down : Bool = false
+    
     override func didMove(to view: SKView) {
         self.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         
@@ -63,7 +68,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     }
   
     func createEnemy(_ location : CGPoint) -> SKSpriteNode{
-        let box = SKSpriteNode(imageNamed: "enemy2");
+        let box = SKSpriteNode(imageNamed: "enemy");
         box.position = location
         box.setScale(0.3)
         return box;
@@ -123,12 +128,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
             let deltaTimeFloat = CGFloat(deltaTime)
             if deltaTimeFloat < 1000 {
                 
-        
-                for i in enemies{
-                    i.position.x += 50 * deltaTimeFloat
-            
-                }
-                
+                updateEnemies(deltaTime : deltaTimeFloat);
                 updatePlayer(deltaTime : deltaTimeFloat);
                 
             }
@@ -140,6 +140,44 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         }
     }
     
+    
+    func updateEnemies(deltaTime : CGFloat){
+        for i in enemies{
+            if i.position.x + (i.size.width / 2) > frame.width && right{
+                right = false;
+                down = true;
+                break;
+            }
+            if i.position.x - (i.size.width / 2) < 0 && !right{
+                right = true;
+                down = true;
+                break;
+            }
+        }
+        
+        
+        for i in enemies{
+            
+            if down{
+                i.position.y -= enemiesSpeedY * deltaTime
+                
+            }
+            
+            if right{
+                i.position.x += enemiesSpeed * deltaTime
+            }
+            
+            else if !right{
+                i.position.x -= enemiesSpeed * deltaTime
+            }
+            
+            
+        }
+        
+        if down{
+            down = false
+        }
+    }
     
     func updatePlayer(deltaTime : CGFloat)
     {
