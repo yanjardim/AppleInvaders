@@ -31,6 +31,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     var down : Bool = false
     
     var score = 0;
+    var level = 1
     let scoreLabel = SKLabelNode(fontNamed: "Arial")
     
     
@@ -95,6 +96,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate
             node2.removeFromParent()
             
             
+            if(enemies.count <= 0){
+                if level >= 6{
+                    level+=1;
+                }
+                enemies = createEnemies(padding: CGPoint(x: 100, y: 70));
+            }
+            
             
         }
         
@@ -107,7 +115,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         let positionY = CGFloat(frame.height - (frame.height / 3))
         var enemies = [SKSpriteNode]()
         for x in 1...4{
-            for y in 1...5{
+            for y in 1...level{
                 let pX = CGFloat(x)
                 let pY = CGFloat(y)
                 let enemy = createEnemy(CGPoint(x: positionX + (padding.x * pX), y: positionY + (padding.y * pY)))
