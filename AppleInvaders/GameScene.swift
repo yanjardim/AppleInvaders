@@ -59,9 +59,34 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         
         if collision == categoryEnemy | categoryBullet
         {
+            guard let node1 = contact.bodyA.node as? SKSpriteNode,
+            let node2 = contact.bodyB.node as? SKSpriteNode else {
+                return
+            }
+         
+            if node1.name == "enemy"{
+                enemies.remove(at: enemies.index(of: node1)!)
+
+            }
+            else  if node1.name == "bullet"
+            {
+                listBullets.remove(at: listBullets.index(of: node1)!)
+            }
+           
+            if node2.name == "enemy"{
+                enemies.remove(at: enemies.index(of: node2)!)
+                
+            }
+            else  if node2.name == "bullet"
+            {
+                listBullets.remove(at: listBullets.index(of: node2)!)
+            }
+            
             score += 1;
-            contact.bodyA.node?.removeFromParent()
-            contact.bodyB.node?.removeFromParent()
+            node1.removeFromParent()
+            node2.removeFromParent()
+            
+  
             
         }
         
@@ -103,6 +128,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         box.physicsBody?.categoryBitMask = categoryEnemy
         box.physicsBody?.contactTestBitMask = categoryBullet
         box.physicsBody?.affectedByGravity = false;
+        box.name = "enemy"
         
         return box;
     }
@@ -126,6 +152,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         bullet.physicsBody?.categoryBitMask = categoryBullet
         bullet.physicsBody?.contactTestBitMask = categoryEnemy
         bullet.physicsBody?.affectedByGravity = false;
+        bullet.name = "bullet"
         
         
         listBullets.append(bullet);
