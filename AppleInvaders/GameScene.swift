@@ -24,6 +24,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     
     let categoryBullet: UInt32 = 0x1 << 0
     let categoryEnemy: UInt32 = 0x1 << 1
+    let categoryPlayer: UInt32 = 0x1 << 2
     
     let enemiesSpeed : CGFloat = 100;
     let enemiesSpeedY : CGFloat = 3000;
@@ -31,26 +32,62 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     var down : Bool = false
     
     var score = 0;
+    var highScore = 0;
     let scoreLabel = SKLabelNode(fontNamed: "Arial")
+    let maxScoreLabel = SKLabelNode(fontNamed: "Arial")
     
+    var playerDead = false;
     
+    override func didMove(to view: SKView)
+    {
+        initScene();
+    }
     
-    override func didMove(to view: SKView) {
+    func RestartScene()
+    {
+        self.removeAllChildren();
+        
+        playerDead = false;
+        score = 0;
+        listBullets.removeAll();
+        enemies.removeAll();
+        
+        initScene();
+        
+    }
+    
+    func initScene()
+    {
         self.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         
         enemies = createEnemies(padding: CGPoint(x: 100, y: 70))
         createPlayer();
         canUpdate = true
-
+        
         physicsWorld.contactDelegate = self
-
+        
         scoreLabel.fontColor = SKColor.white;
         scoreLabel.fontSize = 50
         scoreLabel.position = CGPoint(x: self.frame.midX, y: frame.height - 100);
         scoreLabel.text = "Score: " + String(score);
         
-        self.addChild(scoreLabel)
+        maxScoreLabel.fontColor = SKColor.white;
+        maxScoreLabel.fontSize = 24
+        maxScoreLabel.position = CGPoint(x: self.frame.midX + 200, y: frame.height - 100);
+        updateHighScore();
         
+        self.addChild(scoreLabel)
+        self.addChild(maxScoreLabel)
+
+    }
+    
+    func updateHighScore()
+    {
+        if highScore < score
+        {
+            highScore = score;
+        }
+        maxScoreLabel.text = "HighScore: " + String(highScore);
     }
     
     func didBegin(_ contact: SKPhysicsContact)
@@ -60,19 +97,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         if collision == categoryEnemy | categoryBullet
         {
             guard let node1 = contact.bodyA.node as? SKSpriteNode,
-            let node2 = contact.bodyB.node as? SKSpriteNode else {
-                return
+                let node2 = contact.bodyB.node as? SKSpriteNode else {
+                    return
             }
-         
+            
             if node1.name == "enemy"{
                 enemies.remove(at: enemies.index(of: node1)!)
-
+                
             }
             else  if node1.name == "bullet"
             {
                 listBullets.remove(at: listBullets.index(of: node1)!)
             }
-           
+            
             if node2.name == "enemy"{
                 enemies.remove(at: enemies.index(of: node2)!)
                 
@@ -86,11 +123,36 @@ class GameScene: SKScene, SKPhysicsContactDelegate
             node1.removeFromParent()
             node2.removeFromParent()
             
-  
+            
             
         }
         
+        if collision == categoryPlayer | categoryEnemy
+        {
+            guard let node1 = contact.bodyA.node as? SKSpriteNode,
+                let node2 = contact.bodyB.node as? SKSpriteNode else {
+                    return
+            }
+            
+            if node1.name == "player"
+            {
+                node1.removeFromParent()
+            }
+            
+            if node2.name == "player"
+            {
+                node2.removeFromParent()
+            }
+            
+            
+            updateHighScore();
+            playerDead = true;
+            RestartScene();
+        }
+
+        
     }
+    
     
     func createEnemies(padding : CGPoint) -> Array<SKSpriteNode>{
 
@@ -138,6 +200,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     {
         player.setScale(0.4);
         player.position = CGPoint(x: self.frame.midX, y: player.size.height + 20);
+        
+        player.physicsBody = SKPhysicsBody(rectangleOf: player.frame.size, center: CGPoint(x: 0, y: player.frame.height * 0.4 ))
+        player.physicsBody?.isDynamic = true
+        player.physicsBody?.categoryBitMask = categoryPlayer
+        player.physicsBody?.contactTestBitMask = categoryEnemy
+        player.physicsBody?.allowsRotation = false;
+        player.physicsBody?.affectedByGravity = false;
+        player.name = "player"
+        
         self.addChild(player);
     }
     
@@ -151,6 +222,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         bullet.physicsBody?.isDynamic = true
         bullet.physicsBody?.categoryBitMask = categoryBullet
         bullet.physicsBody?.contactTestBitMask = categoryEnemy
+        bullet.physicsBody?.allowsRotation = false;
         bullet.physicsBody?.affectedByGravity = false;
         bullet.name = "bullet"
         
@@ -267,7 +339,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     {
         timeBullet += deltaTime;
      
-        if timeBullet > speedCreateBullets
+        if timeBullet > speedCreateBullets && playerDead == false
         {
             createBullet();
             
@@ -325,8 +397,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate
 
     }
     
-    func updateScore(){
-        
+    func updateScore()
+    {
         scoreLabel.text = "Score: " + String(score)
     }
     
