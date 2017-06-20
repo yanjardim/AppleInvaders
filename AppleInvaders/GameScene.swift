@@ -59,9 +59,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         
         if collision == categoryEnemy | categoryBullet
         {
+            
+            if let particle = SKEmitterNode(fileNamed: "✨.sks"){
+                particle.zPosition = 4
+                particle.position = contact.bodyA.node!.position
+                self.addChild(particle)
+            }
+            
             score += 1;
             contact.bodyA.node?.removeFromParent()
             contact.bodyB.node?.removeFromParent()
+            
+            
             
         }
         
