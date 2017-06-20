@@ -27,13 +27,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     var right : Bool = true
     var down : Bool = false
     
+    var score = 0;
+    let scoreLabel = SKLabelNode(fontNamed: "Arial")
+    
+    
+    
     override func didMove(to view: SKView) {
         self.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         
         enemies = createEnemies(padding: CGPoint(x: 100, y: 70))
         createPlayer();
         canUpdate = true
-    
+        scoreLabel.fontColor = SKColor.white;
+        scoreLabel.fontSize = 24
+        scoreLabel.position = CGPoint(x: 100, y: frame.height - 60);
+        scoreLabel.text = "Score: " + String(score);
+        
+        self.addChild(scoreLabel)
         
     }
     
@@ -128,14 +138,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate
             let deltaTimeFloat = CGFloat(deltaTime)
             if deltaTimeFloat < 1000 {
                 
+                updateScore()
                 updateEnemies(deltaTime : deltaTimeFloat);
                 updatePlayer(deltaTime : deltaTimeFloat);
                 
             }
             
-            
             lastUpdateTime = currentTime;
-            
             
         }
     }
@@ -203,7 +212,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         {
             player.position.x = (player.size.width/2);
         }
+        
+        
 
+    }
+    
+    func updateScore(){
+        score+=1;
+        scoreLabel.text = "Score: " + String(score)
     }
     
   
