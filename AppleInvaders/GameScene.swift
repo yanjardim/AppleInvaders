@@ -26,17 +26,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     let categoryEnemy: UInt32 = 0x1 << 1
     let categoryPlayer: UInt32 = 0x1 << 2
     
-    let enemiesSpeed : CGFloat = 100;
+    let enemiesSpeed : CGFloat = 300;
     let enemiesSpeedY : CGFloat = 3000;
     var right : Bool = true
     var down : Bool = false
     
     var score = 0;
+
     var highScore = 0;
     let scoreLabel = SKLabelNode(fontNamed: "Arial")
     let maxScoreLabel = SKLabelNode(fontNamed: "Arial")
     
     var playerDead = false;
+
+    var level = 1
+    let shootSound = SKAction.playSoundFileNamed("Sounds/Shoot.mp3", waitForCompletion: false)
+    let deathSound = SKAction.playSoundFileNamed("Sounds/Dead.mp3", waitForCompletion: false)
+    let hitSound = SKAction.playSoundFileNamed("Sounds/Hit.mp3", waitForCompletion: false)
+    let selectSound = SKAction.playSoundFileNamed("Sounds/Select.mp3", waitForCompletion: false)
+
     
     override func didMove(to view: SKView)
     {
@@ -51,7 +59,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         score = 0;
         listBullets.removeAll();
         enemies.removeAll();
-        
+        level = 1;
         initScene();
         
     }
@@ -96,6 +104,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         
         if collision == categoryEnemy | categoryBullet
         {
+
+            
+            if let particle = SKEmitterNode(fileNamed: "✨.sks"){
+                particle.zPosition = 4
+                particle.position = contact.bodyA.node!.position
+                self.addChild(particle)
+            }
+            
             guard let node1 = contact.bodyA.node as? SKSpriteNode,
                 let node2 = contact.bodyB.node as? SKSpriteNode else {
                     return
@@ -119,10 +135,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate
                 listBullets.remove(at: listBullets.index(of: node2)!)
             }
             
+            run(hitSound)
+            
             score += 1;
             node1.removeFromParent()
             node2.removeFromParent()
             
+            
+            if(enemies.count <= 0){
+                if level < 6{
+                    level+=1;
+                }
+                enemies = createEnemies(padding: CGPoint(x: 100, y: 70));
+            }
             
             
         }
@@ -161,7 +186,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         let positionY = CGFloat(frame.height - (frame.height / 3))
         var enemies = [SKSpriteNode]()
         for x in 1...4{
-            for y in 1...5{
+            for y in 1...level{
                 let pX = CGFloat(x)
                 let pY = CGFloat(y)
                 let enemy = createEnemy(CGPoint(x: positionX + (padding.x * pX), y: positionY + (padding.y * pY)))
@@ -226,7 +251,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         bullet.physicsBody?.affectedByGravity = false;
         bullet.name = "bullet"
         
-        
+        run(shootSound)
         listBullets.append(bullet);
         
         self.addChild(bullet);

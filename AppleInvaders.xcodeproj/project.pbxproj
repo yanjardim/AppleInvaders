@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8BDC99701EF8B40500C8B415 /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 8BDC996F1EF8B40500C8B415 /* Sounds */; };
 		8BDD35B71EE618FA00BEE3B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD35B61EE618FA00BEE3B0 /* AppDelegate.swift */; };
 		8BDD35B91EE618FA00BEE3B0 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8BDD35B81EE618FA00BEE3B0 /* GameScene.sks */; };
 		8BDD35BB1EE618FA00BEE3B0 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8BDD35BA1EE618FA00BEE3B0 /* Actions.sks */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8BDC996F1EF8B40500C8B415 /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sounds; sourceTree = "<group>"; };
+		8BDC99711EF8B42300C8B415 /* Enigma.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Enigma.ttf; sourceTree = "<group>"; };
 		8BDD35B31EE618FA00BEE3B0 /* AppleInvaders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleInvaders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BDD35B61EE618FA00BEE3B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BDD35B81EE618FA00BEE3B0 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -105,6 +108,8 @@
 		8BDD35B51EE618FA00BEE3B0 /* AppleInvaders */ = {
 			isa = PBXGroup;
 			children = (
+				8BDC99711EF8B42300C8B415 /* Enigma.ttf */,
+				8BDC996F1EF8B40500C8B415 /* Sounds */,
 				8BDD35B61EE618FA00BEE3B0 /* AppDelegate.swift */,
 				8BDD35B81EE618FA00BEE3B0 /* GameScene.sks */,
 				8BDD35BA1EE618FA00BEE3B0 /* Actions.sks */,
@@ -250,6 +255,7 @@
 				8BDD35C41EE618FA00BEE3B0 /* Assets.xcassets in Resources */,
 				8BDD35C71EE618FA00BEE3B0 /* LaunchScreen.storyboard in Resources */,
 				8BDD35BB1EE618FA00BEE3B0 /* Actions.sks in Resources */,
+				8BDC99701EF8B40500C8B415 /* Sounds in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
