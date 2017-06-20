@@ -25,15 +25,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     let categoryBullet: UInt32 = 0x1 << 0
     let categoryEnemy: UInt32 = 0x1 << 1
     
-    let enemiesSpeed : CGFloat = 200;
+    let enemiesSpeed : CGFloat = 300;
     let enemiesSpeedY : CGFloat = 3000;
     var right : Bool = true
     var down : Bool = false
     
     var score = 0;
     var level = 1
-    let scoreLabel = SKLabelNode(fontNamed: "Arial")
-    
+    let scoreLabel = SKLabelNode(fontNamed : "Sounds/Enigma.ttf")
+    let shootSound = SKAction.playSoundFileNamed("Sounds/Shoot.mp3", waitForCompletion: false)
+    let deathSound = SKAction.playSoundFileNamed("Sounds/Dead.mp3", waitForCompletion: false)
+    let hitSound = SKAction.playSoundFileNamed("Sounds/Hit.mp3", waitForCompletion: false)
+    let selectSound = SKAction.playSoundFileNamed("Sounds/Select.mp3", waitForCompletion: false)
     
     
     override func didMove(to view: SKView) {
@@ -91,13 +94,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate
                 listBullets.remove(at: listBullets.index(of: node2)!)
             }
             
+            run(hitSound)
+            
             score += 1;
             node1.removeFromParent()
             node2.removeFromParent()
             
             
+            
             if(enemies.count <= 0){
-                if level >= 6{
+                if level < 6{
                     level+=1;
                 }
                 enemies = createEnemies(padding: CGPoint(x: 100, y: 70));
@@ -170,7 +176,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         bullet.physicsBody?.affectedByGravity = false;
         bullet.name = "bullet"
         
-        
+        run(shootSound)
         listBullets.append(bullet);
         
         self.addChild(bullet);
