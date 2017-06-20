@@ -25,7 +25,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     let categoryBullet: UInt32 = 0x1 << 0
     let categoryEnemy: UInt32 = 0x1 << 1
     
-    let enemiesSpeed : CGFloat = 100;
+    let enemiesSpeed : CGFloat = 200;
     let enemiesSpeedY : CGFloat = 3000;
     var right : Bool = true
     var down : Bool = false
@@ -59,6 +59,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         
         if collision == categoryEnemy | categoryBullet
         {
+
             
             if let particle = SKEmitterNode(fileNamed: "✨.sks"){
                 particle.zPosition = 4
@@ -66,9 +67,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate
                 self.addChild(particle)
             }
             
+            guard let node1 = contact.bodyA.node as? SKSpriteNode,
+            let node2 = contact.bodyB.node as? SKSpriteNode else {
+                return
+            }
+         
+            if node1.name == "enemy"{
+                enemies.remove(at: enemies.index(of: node1)!)
+
+            }
+            else  if node1.name == "bullet"
+            {
+                listBullets.remove(at: listBullets.index(of: node1)!)
+            }
+           
+            if node2.name == "enemy"{
+                enemies.remove(at: enemies.index(of: node2)!)
+                
+            }
+            else  if node2.name == "bullet"
+            {
+                listBullets.remove(at: listBullets.index(of: node2)!)
+            }
+            
             score += 1;
-            contact.bodyA.node?.removeFromParent()
-            contact.bodyB.node?.removeFromParent()
+            node1.removeFromParent()
+            node2.removeFromParent()
             
             
             
@@ -112,6 +136,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         box.physicsBody?.categoryBitMask = categoryEnemy
         box.physicsBody?.contactTestBitMask = categoryBullet
         box.physicsBody?.affectedByGravity = false;
+        box.name = "enemy"
         
         return box;
     }
@@ -135,6 +160,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         bullet.physicsBody?.categoryBitMask = categoryBullet
         bullet.physicsBody?.contactTestBitMask = categoryEnemy
         bullet.physicsBody?.affectedByGravity = false;
+        bullet.name = "bullet"
         
         
         listBullets.append(bullet);
