@@ -18,12 +18,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     var isTouchPressed = false, moveDirection = false;
     let speedPlayer:CGFloat = 400.0;
     var listBullets = [SKSpriteNode]();
-    var speedCreateBullets : CGFloat = 2;
-    var timeBullet : CGFloat = 2;
+    var speedCreateBullets : CGFloat = 0.8;
+    var timeBullet : CGFloat = 0.8;
     var speedBullet : CGFloat = 30;
     
     let categoryBullet: UInt32 = 0x1 << 0
     let categoryEnemy: UInt32 = 0x1 << 1
+    
+    let enemiesSpeed : CGFloat = 100;
+    let enemiesSpeedY : CGFloat = 3000;
+    var right : Bool = true
+    var down : Bool = false
+    
+    var score = 0;
+    let scoreLabel = SKLabelNode(fontNamed: "Arial")
+    
+    
     
     override func didMove(to view: SKView) {
         self.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
@@ -31,8 +41,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         enemies = createEnemies(padding: CGPoint(x: 100, y: 70))
         createPlayer();
         canUpdate = true
-    
+
         physicsWorld.contactDelegate = self
+
+        scoreLabel.fontColor = SKColor.white;
+        scoreLabel.fontSize = 50
+        scoreLabel.position = CGPoint(x: self.frame.midX, y: frame.height - 100);
+        scoreLabel.text = "Score: " + String(score);
+        
+        self.addChild(scoreLabel)
+        
     }
     
     func didBegin(_ contact: SKPhysicsContact)
@@ -41,9 +59,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         
         if collision == categoryEnemy | categoryBullet
         {
-            print("colidiu")
+            score += 1;
             contact.bodyA.node?.removeFromParent()
             contact.bodyB.node?.removeFromParent()
+            
         }
         
     }
@@ -75,7 +94,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     }
   
     func createEnemy(_ location : CGPoint) -> SKSpriteNode{
-        let box = SKSpriteNode(imageNamed: "enemy2");
+        let box = SKSpriteNode(imageNamed: "enemy");
         box.position = location
         box.setScale(0.3)
        
@@ -91,7 +110,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     
     func createPlayer()
     {
-        player.setScale(0.5);
+        player.setScale(0.4);
         player.position = CGPoint(x: self.frame.midX, y: player.size.height + 20);
         self.addChild(player);
     }
@@ -99,7 +118,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     func createBullet()
     {
         var bullet = SKSpriteNode(imageNamed: "Projetil");
-        bullet.setScale(0.5);
+        bullet.setScale(0.4);
         bullet.position = CGPoint(x: player.position.x, y: player.position.y);
         
         bullet.physicsBody = SKPhysicsBody(rectangleOf: bullet.frame.size, center: CGPoint(x: 0, y: bullet.frame.height * 0.4 ))
@@ -163,24 +182,59 @@ class GameScene: SKScene, SKPhysicsContactDelegate
             let deltaTimeFloat = CGFloat(deltaTime)
             if deltaTimeFloat < 1000 {
                 
-        
-                for i in enemies{
-                    i.position.x += 50 * deltaTimeFloat
-            
-                }
-                
+                updateScore()
+                updateEnemies(deltaTime : deltaTimeFloat);
                 updatePlayer(deltaTime : deltaTimeFloat);
                 updateBullet(deltaTime: deltaTimeFloat);
 
+                
             }
-            
             
             lastUpdateTime = currentTime;
             
-            
+        }
+    }
+    
+    
+    func updateEnemies(deltaTime : CGFloat){
+        for i in enemies{
+            if i.position.x + (i.size.width / 2) > frame.width && right{
+                right = false;
+                down = true;
+                break;
+            }
+            if i.position.x - (i.size.width / 2) < 0 && !right{
+                right = true;
+                down = true;
+                break;
+            }
         }
         
+        
+        for i in enemies{
+            
+
+            if down{
+                i.position.y -= enemiesSpeedY * deltaTime
+                
+
+            }
+            
+            if right{
+                i.position.x += enemiesSpeed * deltaTime
+            }
+            
+            else if !right{
+                i.position.x -= enemiesSpeed * deltaTime
+            }
+            
+            
+        }
+            if down{
+                down = false
+            }
     }
+   
     
     func updateBullet(deltaTime : CGFloat)
     {
@@ -215,8 +269,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     }
     
   
-    
-    
     func updatePlayer(deltaTime : CGFloat)
     {
         if isTouchPressed == true
@@ -241,7 +293,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         {
             player.position.x = (player.size.width/2);
         }
+        
+        
 
+    }
+    
+    func updateScore(){
+        
+        scoreLabel.text = "Score: " + String(score)
     }
     
   
